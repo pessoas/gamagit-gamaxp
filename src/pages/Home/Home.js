@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 import * as S from "./styled";
 
 function Home() {
+  const history = useHistory();
   const [usuario, setUsuario] = useState("");
 
   function handlePesquisa() {
@@ -14,6 +16,7 @@ function Home() {
         repositoriesName.push(repository.name);
       });
       localStorage.setItem('repositoriesName',JSON.stringify(repositoriesName));
+      history.push('/repositories')
     });
   }
 
