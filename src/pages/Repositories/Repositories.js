@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+
 import * as S from './styled'
 
 function Repositories () {
@@ -16,10 +17,11 @@ function Repositories () {
       <S.List>
         { repositories.map((repository) => {
           return (
-          <S.ListItem>Repositório: { repository }</S.ListItem>
+          <S.ListItem key={repository} >Repositório: { repository }</S.ListItem>
           )
         })}
       </S.List>
+      <S.LinkHome to="/">Voltar</S.LinkHome>
     </S.Container>
   );
 }
